@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/earth.jpg"  type="image/x-icon">
+    <script src='https://cdn.plot.ly/plotly-2.11.1.min.js'></script>
+    <title>Cityable Hava Kalitesi Takip </title>
+  </head>
+  <body style="background-color: rgb(80, 106, 134);">
+      
+    <div class="navbar">
+      <img src="images/cityable_logo.png" alt="İBB" width="80em" height="55em">
+      <h3 style="margin-left: 1em;">Cityable İstanbul Canlı Hava Kalitesi Takip Sistemi</h3>
+      
+      
+    </div>
+    
+    <div class="container">
+      <div id="map" class="map">
+        <div id="menu">
+          <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" checked="checked">
+          <label for="satellite-v9">satellite</label>
+          <input id="light-v10" type="radio" name="rtoggle" value="light">
+          <label for="light-v10">light</label>
+          <input id="dark-v10" type="radio" name="rtoggle" value="dark">
+          <label for="dark-v10">dark</label>
+          <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+          <label for="streets-v11">streets</label>
+          <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
+          <label for="outdoors-v11">outdoors</label>
+      </div>
+
+      </div>  
+      
+      
+      <div class="container-2">
+        <div class="card1">
+          <div id="stateValue" class="graf1">
+            <h3>Hava Kalitesi Durum Bilgisi Almak için harita Üzerinden Konum Seçiniz</h3>
+          <div id="resim"></div>
+          </div>
+          <div id="IndicatorChart" class="graf2">
+            <h3>Seçilen konumlardaki hava kalitesi istasyonları en son ölçüm sonuçlarını döndürür.</h3>
+          </div>
+        </div>
+        <div id="myDiv" class="card2">
+          
+        </div>
+        
+      </div>
+    </div>
+    <div class="bottom-container">
+      <div  class="zaman-serisi">
+        <div class="date-input">
+          <label for="startDate">Başlangıç Zamanı : </label>
+          <input type="datetime-local" id="startDate" name="input-time">
+          <label for="endDate">Bitiş Zamanı : </label>
+          <input type="datetime-local" id="endDate" name="input-time">
+
+          <label for="Stations">İstasyon Seçiniz :</label>
+          <select id="Stations">
+            <option class="Station-Option" value="6b7a9840-1e13-4045-a79d-0f881c4852ad">Maslak</option>
+            <option class="Station-Option" value="914b525e-f275-41e1-b45b-118ada8f08c3">Esenler</option>
+            <option class="Station-Option" value="6929a9ca-977d-4cb3-b1b5-26b95f4d4515">Yenibosna</option>
+            <option class="Station-Option" value="41f90c1f-570d-46cd-9beb-493d9162639a">Beylikdüzü</option>
+            <option class="Station-Option" value="377e1216-bcc7-42c0-aad8-4d5b3d602b78">Ümraniye 1</option>
+            <option class="Station-Option" value="cb4cd1c2-b55b-484f-ac7a-505369405d00">Aksaray</option>
+            <option class="Station-Option" value="8c4004c6-3526-49fd-82d6-6be1c5b55ce6">Mobil 2</option>
+            <option class="Station-Option" value="179cd958-11aa-4e7a-8fa4-6eb2c852c2f6">Beşiktaş</option>
+            <option class="Station-Option" value="ecafeb15-905e-4257-a25a-72accf287e2a">Kadıköy</option>
+            <option class="Station-Option" value="593780cc-69d7-417c-8089-8672c509bc0b">Sultangazi 1</option>
+            <option class="Station-Option" value="aa68d3ab-2188-4821-869d-a528b61a05c6">Sultangazi 3</option>
+            <option class="Station-Option" value="a30101a6-349c-4f0d-b965-a68f2c6781e9">Üsküdar 1</option>
+            <option class="Station-Option" value="06cf354f-c56f-4375-a6c5-bb3d5e7d649e">Alibeyköy</option>
+            <option class="Station-Option" value="2054f684-6a42-438f-ae03-bb90445e71e6">Selimiye</option>
+            <option class="Station-Option" value="08fa75a5-277b-4562-bf51-be549c9a25a2">Göztepe</option>
+            <option class="Station-Option" value="2f8ab9f0-eb04-4d62-bf67-d165cb015035">Kağıthane 1</option>
+            <option class="Station-Option" value="61c3752d-2ff9-4d46-bc84-d7f303fa92e0">Kandilli 1</option>
+            <option class="Station-Option" value="9e389c7a-45bd-440a-ba2f-db9c60c65a82">Kartal</option>
+            <option class="Station-Option" value="b9709aaf-454d-4e41-af8c-ddc4302b1014">Çatladıkapı</option>
+            <option class="Station-Option" value="3cb2525d-15e6-48b7-84d2-df139b14e991">Sultangazi 2</option>
+            <option class="Station-Option" value="870840e9-b4fb-43e2-b4fa-e62d59703c88">Bağcılar</option>
+            <option class="Station-Option" value="8cff7d4d-a5be-4e74-93ff-e75437639604">Kumköy</option>
+            <option class="Station-Option" value="ed81dc69-345a-479d-8b9b-e82db11b276e">Sarıyer</option>
+            <option class="Station-Option" value="d6838e88-162e-4394-bd3c-efb9de513ac6">Büyükada</option>
+            <option class="Station-Option" value="0f56c66b-4ef0-40f2-a2cb-fbfeca020a94">Sancaktepe</option>
+            <option class="Station-Option" value="476aac30-cec4-4dc3-b180-fc1522d8a37c">Arnavutköy</option>
+            <option class="Station-Option" value="30a7a252-f4ea-43f8-a8db-fdea5ca332d3">Tuzla</option>
+          </select>
+          <button onclick="GetIntervalResult()" style="color: black;">GÖNDER</button>
+        </div>
+
+        <div id="myDiv3" >
+            <!-- <h3>İstenilen tarihler arasındaki hava durumu bilgisini almak için tarih ve istasyon seçiniz</h3> -->
+        </div>
+
+      </div>
+
+      <div id="myDiv2" class="balon-grafik">
+        
+      </div>
+    </div>
+
+
+      
+
+   
+    
+
+      
+      
+      
+    
+
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script> -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script> 
+    <script src="app2.js"></script>
+    <script src="app.js"></script>
+    
+  </body>
+</html>
