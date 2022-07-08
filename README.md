@@ -61,7 +61,7 @@
 - Potansiyel Güneş Enerjisi ve yağmur hasadı için otomatize coğrafi analiz aracı geliştirilmişitir. (Toolbox)
 - [Detaylar için oluşturulan Story Map e bakınız](https://storymaps.arcgis.com/stories/76f6702446204a4e988630227d138cb0)
 ## [Sosyal](https://experience.arcgis.com/experience/ddce7c27b69b4accb66c6e9bbd7a43ce/page/SOSYAL/?views=View-19%2CView-4%2CView-7)
-###Kent Fonksiyonlarına Erişilebilirlik
+### Kent Fonksiyonlarına Erişilebilirlik
 - İstanbul ilçelerine ait ulaşım, sosyokültürel, sağlık, kamusal hizmet, finans, eğitim, dini, alışveriş bazlı coğrafi verileri üzerinden oluşturulmuş olan ilçe bazlı puanlara harita tabanlı gösterge paneli üzerinden ulaşabilir, bir ya da birden fazla coğrafi verileri seçerek istenilen ilçenin puan bazlı değerlerini görüntüleyebilirsiniz.
 Toplanan veriler normalize edilerek ilçelere göre puanlar belirlenmiştir. İlçelerin sınıflandırılmış verileri kullanılarak kendi aralarında karşılaştırılabilir.
 <img src="https://github.com/IBB-Surdurulebilir-Sehirler/2022-IstanbulVeriAnalitikPlatformu/blob/13749809846e2bb383398403a5ed1736ad92ac51/sosyal_puan.jpg" alt="görsel">
